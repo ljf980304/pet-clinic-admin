@@ -1,0 +1,21 @@
+# Netlify 部署配置。
+#
+# 为什么是 Netlify 而不是 Vercel：Vercel 的 IP 段在国内被 GFW 按 IP 阻断——
+# TCP 握手能过，但一发 TLS ClientHello 就被重置，换 SNI 也没用，
+# 所以绑自有域名同样打不开。Netlify 实测可直连。
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # 项目要求 Node >= 22.12（Vite 8 的硬性要求），
+  # Netlify 默认的 Node 版本偏低，这里显式指定。
+  NODE_VERSION = "22"
+
+# SPA 回退：前端路由的深链接（如 /pet/list）直接访问时，
+# 服务器上并不存在这个路径的文件，必须回退到 index.html 交给前端路由接管。
+# 少这条，刷新任意页面都会 404。
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
