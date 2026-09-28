@@ -6,7 +6,11 @@
 
 ## 在线预览
 
-> **部署地址待填** —— 部署到 Vercel 后把链接贴到这里：`https://<你的项目>.vercel.app`
+**<https://pet-clinic-admin.ljf-dev.com>**
+
+备用入口：<https://pet-clinic-admin.netlify.app>（同一站点，自定义域名万一解析异常时可用）
+
+托管在 Netlify，推送到 `main` 分支会自动构建部署。
 
 **演示账号**（登录页已预填，直接点「登录」即可；也可以点下面的一键体验按钮直接切角色）：
 
