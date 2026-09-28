@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "description": "连锁宠物诊所后台管理系统 · Vue 3 + TypeScript + Vite 作品集 Demo",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
