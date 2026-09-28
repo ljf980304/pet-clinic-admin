@@ -1,0 +1,8 @@
+# Netlify 的 SPA 回退规则。
+#
+# netlify.toml 里的 [[redirects]] 只在 Git 集成构建时生效；
+# 如果是把 dist 目录直接拖拽上传到 Netlify，那份配置不会被读取，
+# 所以这里再放一份进 public/，构建后会出现在 dist/ 根目录，拖拽部署同样生效。
+#
+# 没有这条，直接访问或刷新 /pet/list 这类前端路由会 404。
+/*    /index.html   200
