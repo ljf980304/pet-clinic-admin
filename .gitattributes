@@ -1,0 +1,13 @@
+# 统一按 LF 存进仓库，避免 Windows / macOS / Linux 之间来回转换，
+# 否则光换个行符就会让整个文件显示成「全改了」。
+* text=auto eol=lf
+
+# 二进制文件不要做任何转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary

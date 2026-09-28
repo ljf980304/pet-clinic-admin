@@ -1,0 +1,31 @@
+{
+  "name": "pet-clinic-admin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "连锁宠物诊所后台管理系统 · Vue 3 + TypeScript + Vite 作品集 Demo",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "axios": "^1.20.0",
+    "echarts": "^6.1.0",
+    "element-plus": "^2.14.6",
+    "pinia": "^4.0.3",
+    "vue": "^3.5.43",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@vitejs/plugin-vue": "^6.0.9",
+    "sass": "^1.105.0",
+    "typescript": "~5.9.0",
+    "unplugin-vue-components": "^32.1.0",
+    "vite": "^8.3.1",
+    "vue-tsc": "^3.3.11"
+  }
+}

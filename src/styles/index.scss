@@ -1,0 +1,137 @@
+/* 侧边栏在亮色模式下也用深色，和正文区域拉开层次 */
+:root {
+  --sidebar-bg: #1f2d3d;
+  --header-bg: #ffffff;
+  --app-radius: 8px;
+}
+
+html.dark {
+  --sidebar-bg: #141414;
+  --header-bg: #1d1e1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  color: var(--el-text-color-primary);
+  background: var(--el-bg-color-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 通用页面容器 ---------- */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.page__card {
+  border-radius: var(--app-radius);
+}
+
+/* 表格上方的操作条：左边是查询条件，右边是动作按钮 */
+.page__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.page__toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 分页统一靠右 */
+.page__pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* 数值类文字用等宽字体，翻页时不会左右抖动 */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 滚动条 ---------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--el-border-color-darker);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- 抽屉式侧边栏 ---------- */
+
+/* el-drawer 渲染在 body 下（teleport），scoped 样式够不着，只能写全局 */
+.layout-drawer .el-drawer__body {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ---------- 小屏适配 ---------- */
+
+@media (max-width: 768px) {
+  .page__toolbar {
+    align-items: stretch;
+  }
+
+  .page__toolbar-right {
+    width: 100%;
+  }
+
+  .page__pagination {
+    justify-content: center;
+  }
+
+  /*
+   * 查询表单在窄屏下堆成一列。
+   * 各个输入框在模板里带了固定宽度（为了宽屏下排得整齐），
+   * 这里必须用 !important 才能盖过行内样式 —— 不这么做的话
+   * 卡片会被固定宽度撑破，出现横向滚动条。
+   */
+  .el-form--inline .el-form-item {
+    display: flex;
+    width: 100%;
+    margin: 0 0 12px;
+  }
+
+  .el-form--inline .el-form-item__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .el-form--inline .el-form-item__content > .el-input,
+  .el-form--inline .el-form-item__content > .el-select,
+  .el-form--inline .el-form-item__content > .el-date-editor {
+    width: 100% !important;
+  }
+}
